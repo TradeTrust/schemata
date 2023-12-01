@@ -1,6 +1,6 @@
 {
   "title": "Tradetrust v4.0 Schema",
-  "$id": "https://schemata.openattestation.com/io/tradetrust/4.0/alpha-schema.json",
+  "$id": "https://schemata.tradetrust.io/io/tradetrust/4.0/alpha-schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "definitions": {
@@ -180,12 +180,11 @@
             },
             "credentialStatusType": {
               "type": "string",
-              "enum": ["REVOCATION_STORE", "OCSP_RESPONDER"]
+              "enum": ["REVOCATION_STORE", "OCSP_RESPONDER", "TOKEN_REGISTRY"]
             },
             "location": {
               "type": "string",
-              "format": "uri",
-              "examples": ["https://ocsp-responder.example.com"]
+              "examples": ["https://ocsp-responder.example.com", "0x0000000000000000000000000000000000000000"]
             }
           },
           "required": ["credentialStatusType", "location"],
