@@ -4,7 +4,7 @@
     "@protected": true,
     "@vocab": "https://www.w3.org/ns/credentials/issuer-dependent#",
     "schema": "https://schema.org/",
-    "ttcred": "https://schema.tradetrust.io/4.0/definitions/credentials#",
+    "ttcred": "https://schemata.tradetrust.io/io/tradetrust/4.0/alpha-context.json#",
     "TradeTrustCredential": {
       "@id": "ttcred:TradeTrustCredential",
       "@context": { "name": "schema:name" }
