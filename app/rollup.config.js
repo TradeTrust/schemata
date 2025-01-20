@@ -6,6 +6,8 @@ import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
 import json from "@rollup/plugin-json";
+import path from "path";
+import { spawn } from "child_process";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -19,9 +21,13 @@ function serve() {
   return {
     writeBundle() {
       if (server) return;
-      server = require("child_process").spawn("npm", ["run", "start", "--", "--dev"], {
-        stdio: ["ignore", "inherit", "inherit"],
-        shell: true
+
+      // Use absolute path to the npm binary
+      const npmPath = path.resolve(__dirname, "node_modules/.bin/npm");
+
+      // Spawn the npm process using absolute path to avoid shell injection
+      server = spawn(npmPath, ["run", "start", "--", "--dev"], {
+        stdio: ["ignore", "inherit", "inherit"]
       });
 
       process.on("SIGTERM", toExit);

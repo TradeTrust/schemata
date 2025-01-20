@@ -26,7 +26,6 @@
     "@commitlint/cli": "8.3.3",
     "@commitlint/config-conventional": "8.3.3",
     "@commitlint/prompt": "8.3.3",
-    "@ls-age/commitlint-circle": "1.0.0",
     "@rollup/plugin-json": "^4.0.0",
     "@types/jest": "^24.0.23",
     "@types/jsonld": "^1.5.6",
@@ -64,15 +63,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Open-Attestation/schemata.git"
+    "url": "https://github.com/TradeTrust/schemata.git"
   },
   "keywords": [],
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Open-Attestation/schemata/issues"
+    "url": "https://github.com/TradeTrust/schemata/issues"
   },
-  "homepage": "https://github.com/Open-Attestation/schemata#readme",
+  "homepage": "https://github.com/TradeTrust/schemata#readme",
   "publishConfig": {
     "access": "public"
   },
