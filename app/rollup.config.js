@@ -6,11 +6,14 @@ import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
 import json from "@rollup/plugin-json";
+import path from "path";
 
 const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
   let server;
+
+  const npmPath = path.resolve("npm");
 
   function toExit() {
     if (server) server.kill(0);
@@ -19,10 +22,13 @@ function serve() {
   return {
     writeBundle() {
       if (server) return;
-      server = require("child_process").spawn("npm", ["run", "start", "--", "--dev"], {
-        stdio: ["ignore", "inherit", "inherit"],
-        shell: true
-      });
+      server = require("child_process").spawn(
+        npmPath,
+        ["run", "start", "--", "--dev"],
+        {
+          stdio: ["ignore", "inherit", "inherit"]
+        }
+      );
 
       process.on("SIGTERM", toExit);
       process.on("exit", toExit);
